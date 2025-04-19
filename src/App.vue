@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import Main from "./components/Main.vue";
-import { provide } from "vue";
+import {onMounted, provide} from "vue";
 import store from "./stores/tarsStore.ts";
+import {getProjects} from "./services/tarsService.ts";
+import type {TarsStore} from "./types/tarsStore.ts";
 
-const tarsStore = store().store;
+const tarsStore: TarsStore = store().store;
 
 provide("tarsStore", tarsStore)
+
+onMounted(async () => {
+  await getProjects(tarsStore);
+})
+
 </script>
 
 <template>

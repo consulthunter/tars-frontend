@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue(), tailwindcss(), Icons({
     compiler: 'vue3',})],
   server: {
-    host: '0.0.0.0',  // Make Vite listen on all interfaces
+    host: 'localhost',  // Make Vite listen on all interfaces
     port: 5173,       // Your frontend port
   },
 })
